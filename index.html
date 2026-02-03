@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PriceFirst — Instant Local Price Ranges</title>
+  <meta name="description" content="Get an instant local price range for remodeling, cleaning, plumbing, HVAC, and pet care in Palm Beach & Broward. No calls. No pressure." />
+  <style>
+    :root{
+      --bg:#070b34;
+      --card:#0f1a52;
+      --muted:#c7d2fe;
+      --text:#ffffff;
+      --accent:#22d3ee;   /* cyan */
+      --accent2:#a78bfa;  /* violet */
+      --accent3:#34d399;  /* green */
+      --shadow: 0 20px 60px rgba(0,0,0,.45)
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:radial-gradient(1200px 700px at 10% -10%, rgba(34,211,238,.35), transparent),radial-gradient(1200px 800px at 90% 0%, rgba(167,139,250,.35), transparent),var(--bg);color:var(--text)}
+    a{color:inherit}
+    .wrap{max-width:1200px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0 22px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900}
+    .logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:var(--shadow)}
+    nav{display:flex;gap:14px;flex-wrap:wrap}
+    nav a{text-decoration:none;font-weight:700;opacity:.9}
+    nav a:hover{opacity:1;text-decoration:underline}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.18);border-radius:22px;box-shadow:var(--shadow)}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    @media (max-width: 960px){.hero{grid-template-columns:1fr}}
+    .left{padding:30px}
+    h1{margin:0 0 12px;font-size:46px;line-height:1.05}
+    .sub{color:var(--muted);font-size:17px;line-height:1.55}
+    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .btn{appearance:none;border:0;border-radius:16px;padding:14px 16px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent3));color:#022c22}
+    .btn.ghost{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);color:var(--text)}
+    .btn:hover{transform:translateY(-1px)}
+
+    .right{padding:20px}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    .tab{padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.12);cursor:pointer;font-weight:900}
+    .tab.active{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04111d}
+
+    form{display:grid;gap:10px}
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media (max-width: 560px){.row2{grid-template-columns:1fr}}
+    label{font-size:12px;color:var(--muted);font-weight:900}
+    input, select, textarea{width:100%;padding:12px;border-radius:14px;border:1px solid rgba(255,255,255,.22);background:rgba(0,0,0,.25);color:var(--text)}
+    textarea{min-height:84px}
+
+    .quoteBox{margin-top:12px;padding:16px;border-radius:18px;border:1px solid rgba(255,255,255,.22);background:rgba(0,0,0,.35)}
+    .quoteAmt{font-size:24px;font-weight:900}
+    .fine{color:var(--muted);font-size:13px;line-height:1.5}
+
+    footer{margin-top:28px;padding:18px 0;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap}
+  </style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand"><div class="logo"></div> PriceFirst</div>
+  <nav>
+    <a href="#quote">Get Quote</a>
+    <a href="#providers">Providers</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="card left">
+    <h1>See the price first.</h1>
+    <p class="sub">Instant local price ranges for <b>Remodeling</b>, <b>Cleaning</b>, <b>Plumbing</b>, <b>HVAC</b>, and <b>Pet Care</b> in Palm Beach & Broward.</p>
+    <div class="sub" style="margin-top:14px">
+      <ul style="margin:0 0 0 18px;line-height:1.6">
+        <li><b>Remodeling:</b> Interior painting, windows & doors, carpentry, and other upgrades</li>
+        <li><b>Cleaning:</b> Residential, post‑construction, office, and commercial cleaning</li>
+        <li><b>Plumbing:</b> Remodels, leak detection, water supply, DWV, water heaters</li>
+        <li><b>HVAC:</b> System installs, ductwork, service & repairs, IAQ, commercial/condo</li>
+        <li><b>Pet Care:</b> Walking, sitting, wash & haircut services</li>
+      </ul>
+    </div>
+    <div class="ctaRow">
+      <button class="btn primary" onclick="document.querySelector('#quote').scrollIntoView({behavior:'smooth'})">⚡ Get Instant Quote</button>
+      <button class="btn ghost" onclick="document.querySelector('#providers').scrollIntoView({behavior:'smooth'})">👷 Become a Provider</button>
+    </div>
+  </div>
+
+  <div class="card right" id="quote">
+    <div class="tabs">
+      <button class="tab active" data-svc="remodel">🏗 Remodeling</button>
+      <button class="tab" data-svc="cleaning">🧼 Cleaning</button>
+      <button class="tab" data-svc="plumbing">🚰 Plumbing</button>
+      <button class="tab" data-svc="hvac">❄️ HVAC</button>
+      <button class="tab" data-svc="pet">🐶 Pet Care</button>
+    </div>
+
+    <form>
+      <div id="serviceFields"></div>
+      <p class="fine">Select the service type above to see what’s included. Pricing shown is a local market range, not a final bid.</p>
+      <button class="btn primary" type="button">💰 Show Price Range</button>
+      <div class="quoteBox">
+        <div class="quoteAmt">$ —</div>
+        <div class="fine">Estimates are market-based ranges. Final pricing depends on scope, access, materials, and site conditions.</div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<section id="providers" class="card" style="padding:20px;margin-top:18px">
+<h2>Become a Provider</h2>
+<p class="sub">Get pre-priced, local leads. No monthly fee at launch.</p>
+</section>
+
+<section id="contact" class="card" style="padding:20px;margin-top:18px">
+<h2>Contact</h2>
+<p class="sub">Questions? Want early access? Reach out.</p>
+</section>
+
+<footer>
+  <div>© <span id="yr"></span> PriceFirst • Palm Beach & Broward</div>
+  <div>Bright, simple, transparent pricing</div>
+</footer>
+</div>
+<script>
+// service switching
+const tabs = document.querySelectorAll('.tab');
+const fields = document.getElementById('serviceFields');
+
+tabs.forEach(t=>t.onclick=()=>{
+  tabs.forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  render(t.dataset.svc);
+});
+
+function render(s){
+  if(s==='remodel'){
+    fields.innerHTML=`<label>Remodeling type</label>
+    <select><option>Interior Painting</option><option>Windows & Doors</option><option>Carpentry</option><option>Other</option></select>`;
+  }
+  if(s==='cleaning'){
+    fields.innerHTML=`<label>Cleaning type</label>
+    <select><option>Residential</option><option>Post Construction</option><option>Office</option><option>Commercial</option></select>`;
+  }
+  if(s==='plumbing'){
+    fields.innerHTML=`<label>Plumbing service</label>
+    <select><option>New Construction / Remodel</option><option>Leak Detection</option><option>Water Supply</option><option>DWV</option><option>Water Heaters</option><option>Other</option></select>`;
+  }
+  if(s==='hvac'){
+    fields.innerHTML=`<label>HVAC service</label>
+    <select><option>System Installation</option><option>Ductwork</option><option>Duct Cleaning</option><option>Service & Repairs</option><option>Preventive Maintenance</option><option>Indoor Air Quality</option><option>Controls & Energy Efficiency</option><option>Commercial / Condo</option></select>`;
+  }
+  if(s==='pet'){
+    fields.innerHTML=`<label>Pet care service</label>
+    <select><option>Walking</option><option>Sitting</option><option>Wash & Haircut</option></select>`;
+  }
+}
+render('remodel');
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
